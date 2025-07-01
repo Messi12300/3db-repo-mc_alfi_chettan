@@ -1826,44 +1826,20 @@ async def cb_handler(client: Client, query: CallbackQuery):
 
     elif query.data == "start":
         if PREMIUM_AND_REFERAL_MODE == True:
-            buttons = [[
-                InlineKeyboardButton('⤬ ᴀᴅᴅ ᴍᴇ ᴛᴏ ʏᴏᴜʀ ɢʀᴏᴜᴘ ⤬', url=f'http://t.me/{temp.U_NAME}?startgroup=true')
-            ],[
-                InlineKeyboardButton('ᴇᴀʀɴ ᴍᴏɴᴇʏ', callback_data="shortlink_info"),
-                InlineKeyboardButton('ᴍᴏᴠɪᴇ ɢʀᴏᴜᴘ', url=GRP_LNK)
-            ],[
-                InlineKeyboardButton('ʜᴇʟᴘ', callback_data='help'),
-                InlineKeyboardButton('ᴀʙᴏᴜᴛ', callback_data='about')
-            ],[
-                InlineKeyboardButton('ᴘʀᴇᴍɪᴜᴍ ᴀɴᴅ ʀᴇғᴇʀʀᴀʟ', callback_data='subscription')
-            ],[
-                InlineKeyboardButton('ᴊᴏɪɴ ᴜᴘᴅᴀᴛᴇ ᴄʜᴀɴɴᴇʟ', url=CHNL_LNK)
-            ]]
-        else:
-            buttons = [[
-                InlineKeyboardButton('⤬ ᴀᴅᴅ ᴍᴇ ᴛᴏ ʏᴏᴜʀ ɢʀᴏᴜᴘ ⤬', url=f'http://t.me/{temp.U_NAME}?startgroup=true')
-            ],[
-                InlineKeyboardButton('ᴇᴀʀɴ ᴍᴏɴᴇʏ', callback_data="shortlink_info"),
-                InlineKeyboardButton('ᴍᴏᴠɪᴇ ɢʀᴏᴜᴘ', url=GRP_LNK)
-            ],[
-                InlineKeyboardButton('ʜᴇʟᴘ', callback_data='help'),
-                InlineKeyboardButton('ᴀʙᴏᴜᴛ', callback_data='about')
-            ],[
-                InlineKeyboardButton('ᴊᴏɪɴ ᴜᴘᴅᴀᴛᴇ ᴄʜᴀɴɴᴇʟ', url=CHNL_LNK)
-            ]]
-        if CLONE_MODE == True:
-            buttons.append([InlineKeyboardButton('ᴄʀᴇᴀᴛᴇ ᴏᴡɴ ᴄʟᴏɴᴇ ʙᴏᴛ', callback_data='clone')])
+            buttons = [
+               InlineKeyboardButton('⚙ Lᴀᴛᴇꜱᴛ Mᴏᴠɪᴇ Rᴇʟᴇᴀꜱᴇꜱ ⚙', url=f'https://t.me/+uA5gEKm8WXk1ZTll')
+               ],[
+                InlineKeyboardButton('⚓️ Oᴛᴛ Iɴsᴛᴀɢʀᴀᴍ Cʜᴀɴɴᴇʟ ⚓️', url=f'https://www.instagram.com/new_ott__updates?igsh=enI5ZzIzcXuzd3Bl')
+              ],[
+                InlineKeyboardButton('🖥 Oᴛᴛ Uᴩᴅᴀᴛᴇꜱ Cʜᴀɴɴᴇʟ 🖥', url="https://t.me/+P_ni_6Ji_DAyMzQ1"),
+        ]       
         reply_markup = InlineKeyboardMarkup(buttons)
-        await client.edit_message_media(
-            query.message.chat.id, 
-            query.message.id, 
-            InputMediaPhoto(random.choice(PICS))
-        )
         await query.message.edit_text(
             text=script.START_TXT.format(query.from_user.mention, temp.U_NAME, temp.B_NAME),
             reply_markup=reply_markup,
             parse_mode=enums.ParseMode.HTML
         )
+                
         await query.answer(MSG_ALRT)
 
     elif query.data == "clone":
